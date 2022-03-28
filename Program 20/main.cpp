@@ -24,10 +24,8 @@ int main()
     //Data Abstraction:
     int rows;
     int xRows;
-    int totalRows;
-    int middleRows = 0;
-    bool everyOtherRow = false;
-    bool firstPass;
+    int middleRows = -2;
+    int tempValue = 0;
 
     //Input:
     cout << "Please Enter The Number of Rows: ";
@@ -35,59 +33,44 @@ int main()
     cout << rows << endl;
     //Process/Output:
 
-    totalRows = rows*2;
-    xRows = totalRows;
+    xRows = rows;
 
-    for (int y = 0; y < totalRows; y++)
+    for (int a = 0; a < rows; a++)
     {
-        firstPass = true;
-        for (int i = 0; i < 2; i++)
+        //Spaces on the left
+        for (int x = 0; x < xRows; x++)
         {
-            //Spaces on either side
-            for (int x = 0; x < xRows; x++)
-            {
-                cout << " ";
-            }
-            if (firstPass)
-            {
-                //does everything in the middle of the pyramid
-                if (middleRows == 0)
-                {
-                    cout << "1";
-                }
-                else
-                {
-                    if (everyOtherRow)
-                    {
-                        cout << "1";
-                        for (int a = 0; a < middleRows; a++)
-                        {
-                            cout << " ";
-                        }
-                        cout << "1";
-                    }
-                }
-                firstPass = false;
-            }
+            cout << "    ";
         }
-        cout << endl;
-        xRows--;
-        if (middleRows == 0)
+        cout << "1       ";
+        //stuff in middle of pyramid
+        for (int i = 0; i < middleRows; i++)
         {
-            middleRows = 1;
-        }
-        else
-        {
-            if (everyOtherRow)
+            if (tempValue < 10)
             {
-                everyOtherRow = false;
+                cout << tempValue << "       ";
+            }
+            else if (tempValue < 100)
+            {
+                cout << tempValue << "      ";
+            }
+            else if (tempValue < 1000)
+            {
+                cout << tempValue << "     ";
             }
             else
             {
-                everyOtherRow = true;
+                cout << tempValue << "    ";
             }
-            middleRows+=2;
+
         }
+        if (middleRows >= 0)
+        {
+            cout << "1";
+        }
+        cout << endl;
+        xRows--;
+        middleRows++;
     }
 
 
