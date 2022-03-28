@@ -71,14 +71,6 @@ int main()
             }
         }
         cout << endl;
-        if (everyOtherRow)
-        {
-            everyOtherRow = false;
-        }
-        else
-        {
-            everyOtherRow = true;
-        }
         xRows--;
         if (middleRows == 0)
         {
@@ -86,6 +78,14 @@ int main()
         }
         else
         {
+            if (everyOtherRow)
+            {
+                everyOtherRow = false;
+            }
+            else
+            {
+                everyOtherRow = true;
+            }
             middleRows+=2;
         }
     }
