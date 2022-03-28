@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1644641565 source:d:\csi1430programs\program 8\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
