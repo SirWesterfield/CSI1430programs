@@ -14,8 +14,13 @@
 //#include <SDL2/SDL_thread.h>
 
 //Windows Library
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
+//#include <SDL2/SDL.h>
+//#include <SDL2/SDL_mixer.h>
+
+//Linux Library
+#include <SDL.h>
+#include <SDL_opengl.h>
+#include <stdio.h>
 
 #include <string.h>
 #include <iostream>
