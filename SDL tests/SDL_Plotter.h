@@ -21,6 +21,7 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <stdio.h>
+#include "SDL_mixer.h"
 
 #include <string.h>
 #include <iostream>
