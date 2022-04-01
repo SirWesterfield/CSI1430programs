@@ -23,8 +23,8 @@ int main()
 {
     //Data Abstraction:
     int rows;
-    int xRows;
-    int middleRows = -2;
+    int rowSpaces;
+    int middleRows = -1;
     int tempValue = 0;
 
     //Input:
@@ -33,12 +33,12 @@ int main()
     cout << rows << endl;
     //Process/Output:
 
-    xRows = rows;
+    rowSpaces = rows;
 
     for (int a = 0; a < rows; a++)
     {
         //Spaces on the left
-        for (int x = 0; x < xRows; x++)
+        for (int r = 0; r < rowSpaces; r++)
         {
             cout << "    ";
         }
@@ -46,6 +46,7 @@ int main()
         //stuff in middle of pyramid
         for (int i = 0; i < middleRows; i++)
         {
+            tempValue = combination(a,rows);
             if (tempValue < 10)
             {
                 cout << tempValue << "       ";
@@ -69,7 +70,7 @@ int main()
             cout << "1";
         }
         cout << endl;
-        xRows--;
+        rowSpaces--;
         middleRows++;
     }
 
