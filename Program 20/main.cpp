@@ -8,10 +8,14 @@
 
 
 /*
-Data Abstraction:
+Data Abstraction: number of rows, number of rows in the middle,
+                  number of spaces in front of each row, value
+                  for each entry
 Input: Get the number of rows
-Process: 
-Output: 
+Process: set rowSpace = to rows
+Output: output the spaces in front of each row, then if
+                it is the outside of the pyramid output a 1
+                otherwise, use combination to find the value to output
 Assumptions: user will only input an integer
 */
 #include <iostream>
@@ -25,15 +29,17 @@ int main()
     int rows;
     int rowSpaces;
     int middleRows = -1;
-    int tempValue = 0;
+    int value = 0;
 
     //Input:
     cout << "Please Enter The Number of Rows: ";
     cin >> rows;;
     cout << rows << endl;
-    //Process/Output:
-
+    //Process
+    
     rowSpaces = rows;
+
+    //Output:
 
     for (int a = 0; a < rows; a++)
     {
@@ -46,22 +52,22 @@ int main()
         //stuff in middle of pyramid
         for (int i = 0; i < middleRows; i++)
         {
-            tempValue = combination(a,rows);
-            if (tempValue < 10)
+            value = combination(a,i+1);
+            if (value < 10)
             {
-                cout << tempValue << "       ";
+                cout << value << "       ";
             }
-            else if (tempValue < 100)
+            else if (value < 100)
             {
-                cout << tempValue << "      ";
+                cout << value << "      ";
             }
-            else if (tempValue < 1000)
+            else if (value < 1000)
             {
-                cout << tempValue << "     ";
+                cout << value << "     ";
             }
             else
             {
-                cout << tempValue << "    ";
+                cout << value << "    ";
             }
 
         }
@@ -73,27 +79,5 @@ int main()
         rowSpaces--;
         middleRows++;
     }
-
-
-    //Pascals's Matrix, figure out spacing for triangle
-    /*
-    for (int y = 0; y < rows; y++)
-    {
-        for (int x = 0; x < rows; x++)
-        {
-            if (x == 0 || y == 0)
-            {
-                cout << "1 ";
-            }
-            else
-            {
-                cout << factorial(x+y) / (factorial(x)*factorial(y)) << " ";
-            }
-        }
-        cout << endl;
-    }
-    */
-    
-
     return 0;
 }
