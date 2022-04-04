@@ -7,16 +7,31 @@
 
 #include "Point.h"
 
-struct Point
+int x, y;
+    
+Point::Point(int xInput, int yInput)
 {
-    int x, y;
-    
-    Point(int yInput, int xInput)
-    {
+    x = xInput;
+    y = yInput;
+}
 
-    }
-    
-    void display(ostream&) const;
-    double distance(const Point&) const;
-    Point midPoint(const Point&) const;
-};
+void Point::display(ostream& out) const
+{
+    out << "(" << x << "," << y << ")" << endl;        
+}
+
+
+double Point::distance(const Point& point) const
+{
+    double distance;
+    int diffx = pow(x-point.x,2);
+    int diffy = pow(y-point.y,2);
+    distance = sqrt(diffx + diffy);
+    return distance;
+}
+
+Point Point::midPoint(const Point& point) const
+{   
+    Point mid((x+point.x)/2, (y+point.y)/2);
+    return mid;
+}

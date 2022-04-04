@@ -9,15 +9,8 @@
 #define POINT_H_INCLUDED
 
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-/*
-* description:
-* return:
-* precondition:
-* postcondition:
-*
-*/
 
 struct Point
 {

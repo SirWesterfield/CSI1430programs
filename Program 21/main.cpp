@@ -15,19 +15,18 @@ Output:
 Assumptions:
 */
 #include <iostream>
-
+#include "Point.h"
 using namespace std;
 
 int main()
 {
-    //Data Abstraction:
-
-    //Input:
-
-    //Process:
-
-    //Output:
     
+    Point point(10,4);
+    Point point2(4,80);
+    point.display(cout);
+    point2.display(cout);
+    Point temp = point.midPoint(point2);
+    temp.display(cout);
 
     return 0;
 }
