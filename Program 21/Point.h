@@ -53,7 +53,8 @@ struct Point
                    the values should be rounded to the nearest integer.
     * return: Point
     * precondition: two Point Object exists
-    * postcondition: a Point has been returned with x and y being the midPoint of the input.
+    * postcondition: a Point has been returned with x and y being the 
+    *                midPoint of the input.
     *
     */
 

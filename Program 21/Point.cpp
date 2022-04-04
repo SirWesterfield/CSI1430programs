@@ -32,6 +32,30 @@ double Point::distance(const Point& point) const
 
 Point Point::midPoint(const Point& point) const
 {   
-    Point mid((x+point.x)/2, (y+point.y)/2);
+    double xCoord = (x+point.x)/2.0;
+    double yCoord = (y+point.y)/2.0;
+    if (xCoord != int(xCoord))
+    {
+        if (xCoord >= 0)
+        {
+            xCoord = int(xCoord)+1;
+        }
+        else
+        {
+            xCoord = int(xCoord)-1;
+        }
+    }
+    if (yCoord != int(yCoord))
+    {
+        if (yCoord >= 0)
+        {
+            yCoord = int(yCoord)+1;
+        }
+        else
+        {
+            yCoord = int(yCoord)-1;
+        }
+    }
+    Point mid(xCoord, yCoord);
     return mid;
 }

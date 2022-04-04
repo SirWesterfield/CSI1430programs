@@ -21,8 +21,8 @@ using namespace std;
 int main()
 {
     
-    Point point(10,4);
-    Point point2(4,80);
+    Point point(0,0);
+    Point point2(-5,62);
     point.display(cout);
     point2.display(cout);
     Point temp = point.midPoint(point2);
