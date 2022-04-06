@@ -46,14 +46,44 @@ bool Line::hasSlope() const
 double Line::slope() const
 {
     double getSlope;
-    //If they are in the correct order, may need to change this
-    //Also, do I need to check if it has slope?
-    getSlope = (p1.y - p2.y)/(p1.x-p2.x);
+    getSlope = static_cast<double>(p1.y - p2.y)/(p1.x-p2.x);
+    //cout << "TODO: check if the slope exists before finding it" << endl;
     return getSlope;
 }
 
 double Line::yIntercept() const
 {
-    //check if it has a yIntercept, then find equation of line? Specficially b in y = mx + b
-    return -1;
+    double yInt;
+    yInt = slope()*(-p1.x) + p1.y;
+    //cout << "TODO: check if there is a yIntercept before finding it" << endl;
+    return yInt;
+}
+
+bool Line::isParallel(const Line& otherLine) const
+{
+    //cout << "TODO: write this function" << endl;
+    return false;
+}
+
+bool Line::isCollinear(const Line& otherLine) const
+{
+    //cout << "TODO: write this function" << endl;
+    return false;
+}
+
+bool Line::isPerpendicular(const Line& otherLine) const
+{
+    //cout << "TODO: write this function" << endl;
+    return false;
+}
+
+Point Line::intersect(const Line& otherLine) const
+{
+    //cout << "TODO: write this function" << endl;
+    return false;
+}
+
+void Line::display(ostream& out) const
+{
+    cout << "y = " << slope() << "(x - " << p1.x << ") + " << p1.y << endl;
 }
