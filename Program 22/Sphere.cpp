@@ -1,11 +1,23 @@
 //Author: Wesley Anastasi
-//Assignment Title: 
-//Assignment Description: 
-//Due Date: 
-//Date Created: 
-//Date Last Modified: 
+//Assignment Title: Program 22
+//Assignment Description: Sphere class
+//Due Date: 4/8/2022
+//Date Created: 4/4/2022
+//Date Last Modified: 4/6/2022
 
 #include "Sphere.h"
+
+Sphere::Sphere()
+{
+    radius = 1;
+    color = "green";
+}
+
+Sphere::Sphere(double r)
+{
+    radius = r;
+    color = "green";
+}
 
 Sphere::Sphere(double r, string c)
 {
@@ -35,10 +47,20 @@ string Sphere::getColor() const
 
 double Sphere::area() const
 {
-    return 4 * PI * pow(radius,2);
+    return 4 * 3.14159 * pow(radius,2);
 }
 
 double Sphere::volume() const
 {
-    return (4.0/3.0) * PI * pow(radius,3);
+    return (4.0/3.0) * 3.14159 * pow(radius,3);
+}
+
+bool Sphere::isEqual(const Sphere other) const
+{
+    bool equal = false;
+    if (other.getColor() == color && other.getRadius() == radius)
+    {
+        equal = true;
+    }
+    return equal;
 }

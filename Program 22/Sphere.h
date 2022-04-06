@@ -1,9 +1,9 @@
 //Author: Wesley Anastasi
-//Assignment Title: 
-//Assignment Description: 
-//Due Date: 
-//Date Created: 
-//Date Last Modified: 
+//Assignment Title: Program 22
+//Assignment Description: Sphere class
+//Due Date: 4/8/2022
+//Date Created: 4/4/2022
+//Date Last Modified: 4/6/2022
 
 #ifndef SPHERE_H_INCLUDED
 #define SPHERE_H_INCLUDED
@@ -14,9 +14,10 @@ using namespace std;
 
 class Sphere
 {
-    int PI = 3.14159;
+    private:
     double radius;
     string color;
+    public:
 
     /*
     * description: creates a Sphere Object with radius 1 and color green
@@ -24,7 +25,7 @@ class Sphere
     * precondition: none
     * postcondition: a Sphere Object has been created
     *
-    *
+    */
 
     Sphere();
 
@@ -34,7 +35,7 @@ class Sphere
     * precondition: none
     * postcondition: a Sphere Object has been created
     *
-    *
+    */
 
     Sphere(double r);
 
@@ -44,7 +45,7 @@ class Sphere
     * precondition: none
     * postcondition: a Sphere Object has been created
     *
-    *
+    */
 
     Sphere(double r, string c);
 
@@ -56,15 +57,14 @@ class Sphere
     *
     */
 
-    Sphere (double r = 1, string c = "green");
-
     void setRadius(double r);
 
     /*
     * description: returns the radius of the Sphere
     * return: double
     * precondition: a Sphere Object exists
-    * postcondition: the Object is unchnaged and a double value has been returned
+    * postcondition: the Object is unchnaged and a 
+    *                double value has been returned
     *
     */
 
@@ -84,7 +84,8 @@ class Sphere
     * description: returns the color of the Sphere
     * return: string
     * precondition: a Sphere Object exists
-    * postcondition: the Object is unchanged and a string value has been returned
+    * postcondition: the Object is unchanged and a 
+    *                string value has been returned
     *
     */
     string getColor() const;
@@ -93,7 +94,8 @@ class Sphere
     * description: returns the area of the Sphere
     * return: double
     * precondition: a Sphere Object exists
-    * postcondition: the Object is unchanged and a double value has been returned
+    * postcondition: the Object is unchanged and a 
+    *                double value has been returned
     *
     */
 
@@ -103,7 +105,8 @@ class Sphere
     * description: returns the volume of the Sphere
     * return: double
     * precondition: a Sphere Object exists
-    * postcondition: the Object is unchanged and a double value has been returned
+    * postcondition: the Object is unchanged and a 
+    *                double value has been returned
     *
     */
 
@@ -121,14 +124,5 @@ class Sphere
 
     bool isEqual(const Sphere other) const;
 };
-
-/*
- * description:
- * return:
- * precondition:
- * postcondition:
- *
-*/
-
 
 #endif // HEADERFILENAME_H_INCLUDED
