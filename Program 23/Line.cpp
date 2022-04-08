@@ -67,8 +67,12 @@ bool Line::isParallel(const Line& otherLine) const
 
 bool Line::isCollinear(const Line& otherLine) const
 {
-    //cout << "TODO: write this function" << endl;
-    return false;
+    bool isIt = false;
+    if (slope() == otherLine.slope() && yIntercept() == otherLine.yIntercept())
+    {
+        isIt = true;
+    }
+    return isIt;
 }
 
 bool Line::isPerpendicular(const Line& otherLine) const
