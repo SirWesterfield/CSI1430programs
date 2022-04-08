@@ -35,10 +35,10 @@ Point Line::getSecondPoint() const
 
 bool Line::hasSlope() const
 {
-    bool containsSlope = false;
+    bool containsSlope = true;
     if (p1.x == p2.x || p1.y == p2.y)
     {
-        containsSlope = true;
+        containsSlope = false;
     }
     return containsSlope;
 }
@@ -55,7 +55,6 @@ double Line::yIntercept() const
 {
     double yInt;
     yInt = slope()*(-p1.x) + p1.y;
-    //cout << "TODO: check if there is a yIntercept before finding it" << endl;
     return yInt;
 }
 
@@ -89,5 +88,21 @@ Point Line::intersect(const Line& otherLine) const
 
 void Line::display(ostream& out) const
 {
-    cout << "y = " << slope() << "(x - " << p1.x << ") + " << p1.y << endl;
+    //Incorrect display, need to fix
+    if (!hasSlope())
+    {
+        cout << "y = " << p1.y << endl;
+    }
+    else if (slope() == 1 && yIntercept() == 0)
+    {
+        cout << "y = x" << endl;
+    }
+    else if (slope() == 1)
+    {
+        cout << "y = x + " << p1.y << endl;
+    }
+    else
+    {
+        cout << "y = " << slope() << "x + " << yIntercept() << endl;
+    }
 }
