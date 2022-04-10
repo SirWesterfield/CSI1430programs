@@ -47,7 +47,6 @@ double Line::slope() const
 {
     double getSlope;
     getSlope = static_cast<double>(p1.y - p2.y)/(p1.x-p2.x);
-    //cout << "TODO: check if the slope exists before finding it" << endl;
     return getSlope;
 }
 
@@ -60,8 +59,12 @@ double Line::yIntercept() const
 
 bool Line::isParallel(const Line& otherLine) const
 {
-    //cout << "TODO: write this function" << endl;
-    return false;
+    bool isIt = false;
+    if (slope() == otherLine.slope() && !isCollinear(otherLine))
+    {
+        isIt = true;
+    }
+    return isIt;
 }
 
 bool Line::isCollinear(const Line& otherLine) const
@@ -76,33 +79,124 @@ bool Line::isCollinear(const Line& otherLine) const
 
 bool Line::isPerpendicular(const Line& otherLine) const
 {
-    //cout << "TODO: write this function" << endl;
-    return false;
+    bool isIt = false;
+    if (slope() == otherLine.slope()*-1)
+    {
+        isIt = true;
+    }
+    return isIt;
 }
 
 Point Line::intersect(const Line& otherLine) const
 {
-    //cout << "TODO: write this function" << endl;
-    return false;
+    Point point;
+    double xSlope;
+    double yInt;
+    double x;
+    double y;
+    if (hasSlope() && otherLine.hasSlope())
+    {
+        xSlope = slope() + otherLine.slope()*-1;
+        yInt = yIntercept()*-1 + otherLine.yIntercept();
+        x = yInt/xSlope;
+        y = slope()*x + yIntercept();
+    }
+    else
+    {
+        if (hasSlope())
+        {
+            if (otherLine.p1.x == otherLine.p2.x)
+            {
+                x = otherLine.p1.x;
+                y = otherLine.p1.x;
+            }
+            else
+            {
+                x = otherLine.p1.y;
+                y = otherLine.p1.y;
+            }
+        }
+        else
+        {
+            if (p1.x == p2.x)
+            {
+                x = p1.x;
+                y = p1.x;
+            }
+            else
+            {
+                x = p1.y;
+                y = p1.y;
+            }
+        }
+    }
+    //Rounding
+    if (x != int(x) && x-int(x) > 0.5)
+    {
+        if (x >= 0)
+        {
+            x = int(x)+1;
+        }
+        else
+        {
+            x = int(x)-1;
+        }
+    }
+    if (y != int(y) && y-int(y) > 0.5)
+    {
+        if (y >= 0)
+        {
+            y = int(y)+1;
+        }
+        else
+        {
+            y = int(y)-1;
+        }
+    }
+    point.x = x;
+    point.y = y;
+    return point;
 }
 
 void Line::display(ostream& out) const
 {
-    //Incorrect display, need to fix
     if (!hasSlope())
     {
-        cout << "y = " << p1.y << endl;
-    }
-    else if (slope() == 1 && yIntercept() == 0)
-    {
-        cout << "y = x" << endl;
-    }
-    else if (slope() == 1)
-    {
-        cout << "y = x + " << p1.y << endl;
+        if (p1.x == p2.x)
+        {
+            cout << "x = " << p1.x;
+        }
+        else
+        {
+            cout << "y = " << p1.y;
+        }
     }
     else
     {
-        cout << "y = " << slope() << "x + " << yIntercept() << endl;
+        cout << "y = ";
+        if (slope() != 1)
+        {
+            if (slope() == -1)
+            {
+                cout << "-";
+            }
+            else
+            {
+                cout << slope();
+            }
+        }
+        cout << "x";
+        if (yIntercept() != 0)
+        {
+            if (yIntercept() < 0)
+            {
+                cout << " ";
+            }
+            else
+            {
+                cout << " + ";
+            }
+            cout << yIntercept();
+        }
     }
 }

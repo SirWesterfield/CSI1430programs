@@ -153,13 +153,6 @@ class Line{
 
 		void display(ostream&) const;
 };
-/*
- * description:
- * return:
- * precondition:
- * postcondition:
- *
-*/
 
 
 #endif // LINE_H_INCLUDED

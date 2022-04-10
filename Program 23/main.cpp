@@ -5,41 +5,31 @@ using namespace std;
 
 int main()
 {
-    int x1,x2,y1,y2;
-    cout << "Enter x1: ";
-    cin >> x1;
-    cout << "Enter y1: ";
-    cin >> y1;
-    Point point1(x1,y1);
-    point1.display(cout);
-    cout << "Enter x2: ";
-    cin >> x2;
-    cout << "Enter y2: ";
-    cin >> y2;
-    Point point2(x2,y2);
-    point2.display(cout);
-    Line line(point1, point2);
-    Line line2;
-    cout << "y-intercept: " << line.yIntercept() << endl;
-    cout << "slope: " << line.slope() << endl;
-    line.display(cout);
-    cout << "line 2: ";
-    line2.display(cout);
-    cout << "y-intercept: " << line2.yIntercept() << endl;
-    cout << "slope: " << line2.slope() << endl;
-    if (line.isCollinear(line2))
-    {
-        cout << "Collinear" << endl;
-    }
-    if (line.isParallel(line2))
-    {
-        cout << "Parallel" << endl;
-    }
-    if (line.isPerpendicular(line2))
-    {
-        cout << "Perpendicular" << endl;
-    }
-
-
+    Point intersect;
+    Line yEqualsX;
+    Point p1(5,1);
+    Point p2(5,0);
+    Line xEquals5(p1,p2);
+    Point p3(1,-1);
+    Line yEqualsNegativeX(p3);
+    Point p4(0,345);
+    Point p5(1,331);
+    Line yEqualsNegative14XPlus345(p4,p5);
+    Point p6(0,5);
+    Point p7(1,6);
+    Line yEqualsXPlus5(p6,p7);
+    /*yEqualsX.display(cout); 
+    cout << " ----- ";
+    xEquals5.display(cout);
+    cout << endl;
+    intersect = yEqualsX.intersect(xEquals5);
+    intersect.display(cout);
+    intersect = yEqualsNegativeX.intersect(yEqualsX);*/
+    yEqualsNegative14XPlus345.display(cout);
+    cout << endl;
+    yEqualsXPlus5.display(cout);
+    cout << endl;
+    intersect = yEqualsNegative14XPlus345.intersect(yEqualsXPlus5);
+    intersect.display(cout);
     return 0;
 }
