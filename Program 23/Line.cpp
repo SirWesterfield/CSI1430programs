@@ -130,29 +130,8 @@ Point Line::intersect(const Line& otherLine) const
             }
         }
     }
-    //Rounding
-    if (x != int(x) && x-int(x) > 0.5)
-    {
-        if (x >= 0)
-        {
-            x = int(x)+1;
-        }
-        else
-        {
-            x = int(x)-1;
-        }
-    }
-    if (y != int(y) && y-int(y) > 0.5)
-    {
-        if (y >= 0)
-        {
-            y = int(y)+1;
-        }
-        else
-        {
-            y = int(y)-1;
-        }
-    }
+    x = round(x);
+    y = round(y);
     point.x = x;
     point.y = y;
     return point;

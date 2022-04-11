@@ -11,6 +11,7 @@
 #include <ostream>
 #include <iostream>
 #include "Point.h"
+#include <cmath>
 
 using namespace std;
 
