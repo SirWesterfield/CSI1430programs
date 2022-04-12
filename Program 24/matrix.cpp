@@ -1,9 +1,9 @@
 //Author: Wesley Anastasi
-//Assignment Title: 
-//Assignment Description: 
-//Due Date: 
-//Date Created: 
-//Date Last Modified: 
+//Assignment Title: Program 23
+//Assignment Description: Matrix class
+//Due Date: 4/13/2022
+//Date Created: 4/11/2022
+//Date Last Modified: 4/12/2022
 
 #include "matrix.h"
 
@@ -20,32 +20,32 @@ matrix_t::matrix_t(int row1, int column)
 
 void matrix_t::setRow(int n)
 {
-
+    row = n;
 }
 
-void matrix_t::setCol(int)
+void matrix_t::setCol(int n)
 {
-
+    col = n;
 }
 
 void matrix_t::setValue(int n1, int n2, double d)
 {
-
+    data[n1][n2] = d;
 }
 
 int matrix_t::getRow() const
 {
-    return -1;
+    return row;
 }
 
 int matrix_t::getCol() const
 {
-    return -1;
+    return col;
 }
 
 double matrix_t::getValue(int n1, int n2) const
 {
-    return -1.0;
+    return data[n1][n2];
 }
 
 void matrix_t::display(ostream& out) const
@@ -54,11 +54,11 @@ void matrix_t::display(ostream& out) const
     {
         for (int a = 0; a < col; a++)
         {
-            out << data[i][a] << " ";
+            out << setw(5);
+            out << data[i][a];
         }
         out << endl;
     }
-    out << row << "x" << col << endl;
 }
 
 double matrix_t::determinant() const{
@@ -89,36 +89,102 @@ double matrix_t::determinant() const{
 matrix_t matrix_t::add(const matrix_t& m) const
 {
     matrix_t matrix;
+    matrix.setCol(col);
+    matrix.setRow(row);
+    for (int i = 0; i < row; i++)
+    {
+        for (int a = 0; a < col; a++)
+        {
+            matrix.setValue(i,a,data[i][a] + m.getValue(i,a));
+        }
+    }
     return matrix;
 }
 
 matrix_t matrix_t::subtract(const matrix_t& m) const
 {
     matrix_t matrix;
+    matrix.setCol(col);
+    matrix.setRow(row);
+    for (int i = 0; i < row; i++)
+    {
+        for (int a = 0; a < col; a++)
+        {
+            matrix.setValue(i,a,data[i][a] - m.getValue(i,a));
+        }
+    }
     return matrix;
 }
 
 matrix_t matrix_t::multiply(const matrix_t& m) const
 {
     matrix_t matrix;
+    double value;
+    matrix.setRow(row);
+    matrix.setCol(m.getCol());
+    for (int i = 0; i < matrix.getRow(); i++)
+    {
+        for (int a = 0; a < matrix.getCol(); a++)
+        {
+            value = 0;
+            for (int b = 0; b < col; b++)
+            {
+                value += getValue(i,b) * m.getValue(b,a);
+            }
+            matrix.setValue(i,a,value);
+        }
+    }
     return matrix;
 }
 
 matrix_t matrix_t::operator+(const matrix_t& m) const
 {
     matrix_t matrix;
+    matrix.setCol(col);
+    matrix.setRow(row);
+    for (int i = 0; i < row; i++)
+    {
+        for (int a = 0; a < col; a++)
+        {
+            matrix.setValue(i,a,data[i][a] + m.getValue(i,a));
+        }
+    }
     return matrix;
 }
 
 matrix_t matrix_t::operator-(const matrix_t& m) const
 {
     matrix_t matrix;
+    matrix.setCol(col);
+    matrix.setRow(row);
+    for (int i = 0; i < row; i++)
+    {
+        for (int a = 0; a < col; a++)
+        {
+            matrix.setValue(i,a,data[i][a] - m.getValue(i,a));
+        }
+    }
     return matrix;
 }
 
 matrix_t matrix_t::operator*(const matrix_t& m) const
 {
     matrix_t matrix;
+    double value;
+    matrix.setRow(row);
+    matrix.setCol(m.getCol());
+    for (int i = 0; i < matrix.getRow(); i++)
+    {
+        for (int a = 0; a < matrix.getCol(); a++)
+        {
+            value = 0;
+            for (int b = 0; b < col; b++)
+            {
+                value += getValue(i,b) * m.getValue(b,a);
+            }
+            matrix.setValue(i,a,value);
+        }
+    }
     return matrix;
 }
 

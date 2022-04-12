@@ -1,7 +1,14 @@
+//Author: Wesley Anastasi
+//Assignment Title: Program 23
+//Assignment Description: Matrix class
+//Due Date: 4/13/2022
+//Date Created: 4/11/2022
+//Date Last Modified: 4/12/2022
+
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
-
+#include <iomanip>
 #include <ostream>
 #include <cmath>
 
@@ -29,8 +36,8 @@ public:
 	matrix_t();
 
     /*
-    * description: constructs a matrix object and sets the first integer to row,
-                   and the second integer to col;
+    * description: constructs a matrix object and sets the 
+                   first integer to row, and the second integer to col;
     * return: matrix object
     * precondition: two integers exist
     * postcondition: a matrix object has been created
@@ -122,7 +129,7 @@ public:
     /*
     * description: adds two matrices together
     * return: matrix object
-    * precondition: a matrix object exists
+    * precondition: both matricies are the same size
     * postcondition: the both matricies are unchanged
     *
     */
@@ -132,7 +139,7 @@ public:
     /*
     * description: subtracts two matrices
     * return: matrix object
-    * precondition: a matrix object exists
+    * precondition: both matricies are the same size
     * postcondition: both matrices are unchanged
     *
     */
@@ -152,7 +159,7 @@ public:
     /*
     * description: adds two matrices together
     * return: matrix object
-    * precondition: a matrix object exists
+    * precondition: both matricies are the same size
     * postcondition: the both matricies are unchanged
     *
     */
@@ -162,7 +169,7 @@ public:
     /*
     * description: subtracts two matrices
     * return: matrix object
-    * precondition: a matrix object exists
+    * precondition: both matricies are the same size
     * postcondition: both matrices are unchanged
     *
     */
