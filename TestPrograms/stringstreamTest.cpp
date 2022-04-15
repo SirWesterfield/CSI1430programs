@@ -10,13 +10,15 @@ int main()
     char oper1, oper2;
     string s;
     ss << "12+47=59";
+    ss << 1;
     cout << ss.str() << endl;
     ss >> n1;
     ss >> oper1;
     ss >> n2;
     ss >> oper2;
+    ss << 14;
     ss >> n3;
-    cout << n1 << endl;
+    cout << n3 << endl;
     cout << oper1 << endl;
 
     switch(oper1)
