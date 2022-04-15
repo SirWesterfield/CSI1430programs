@@ -14,8 +14,8 @@ using namespace std;
 
 class classTemplate
 {
-    public:
     private:
+    public:
 
     /*
     * description:
