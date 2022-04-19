@@ -105,9 +105,9 @@ int main()
         cout << setw(outputWidth) << spheres[i].volume();
         cout << "\n";
     }
-    cout << "Total Number of Spheres = " << count << "\n";
+    cout << "Total Number of Spheres = " << count << ".\n";
     cout << redSpheres << "% of Spheres are red.\n";
-    cout << largeVolumes << " Spheres have a Volume over 215\n";
+    cout << largeVolumes << " Spheres have a Volume over 215.\n";
     cout << "Average Area = " << averageArea << endl;
     return 0;
 }
