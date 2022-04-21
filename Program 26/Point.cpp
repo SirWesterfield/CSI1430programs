@@ -17,7 +17,7 @@ Point::Point(int xInput, int yInput)
 
 void Point::display(ostream& out) const
 {
-    out << "(" << x << "," << y << ")" << endl;        
+    out << "(" << x << "," << y << ")";        
 }
 
 

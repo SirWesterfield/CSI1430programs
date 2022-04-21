@@ -96,6 +96,10 @@ Point Line::intersect(const Line& otherLine) const
     double y;
     if (hasSlope() && otherLine.hasSlope())
     {
+        //y = ax + b
+        //y = cx + d
+        //ax + b = cx + d
+        //(a-c)x = d-b
         xSlope = slope() + otherLine.slope()*-1;
         yInt = yIntercept()*-1 + otherLine.yIntercept();
         x = yInt/xSlope;
@@ -107,12 +111,18 @@ Point Line::intersect(const Line& otherLine) const
         {
             if (otherLine.p1.x == otherLine.p2.x)
             {
+                //y = ax + b
+                //x = d
+                //y = a(d) + b
                 x = otherLine.p1.x;
-                y = otherLine.p1.x;
+                y = slope()*x + yIntercept();
             }
             else
             {
-                x = otherLine.p1.y;
+                //y = ax + b
+                //y = d
+                //x = (d-b)/a
+                x = (otherLine.p1.y - yIntercept())/slope();
                 y = otherLine.p1.y;
             }
         }
@@ -120,12 +130,18 @@ Point Line::intersect(const Line& otherLine) const
         {
             if (p1.x == p2.x)
             {
+                //y = ax + b
+                //x = d
+                //y = a(d) + b
                 x = p1.x;
-                y = p1.x;
+                y = otherLine.slope()*x + otherLine.yIntercept();
             }
             else
             {
-                x = p1.y;
+                //y = ax + b
+                //y = d
+                //x = (d-b)/a
+                x = (p1.y - otherLine.yIntercept())/otherLine.slope();
                 y = p1.y;
             }
         }
@@ -143,39 +159,39 @@ void Line::display(ostream& out) const
     {
         if (p1.x == p2.x)
         {
-            cout << "x = " << p1.x;
+            out << "x = " << p1.x;
         }
         else
         {
-            cout << "y = " << p1.y;
+            out << "y = " << p1.y;
         }
     }
     else
     {
-        cout << "y = ";
+        out << "y = ";
         if (slope() != 1)
         {
             if (slope() == -1)
             {
-                cout << "-";
+                out << "-";
             }
             else
             {
-                cout << slope();
+                out << slope();
             }
         }
-        cout << "x";
+        out << "x";
         if (yIntercept() != 0)
         {
             if (yIntercept() < 0)
             {
-                cout << " ";
+                out << " ";
             }
             else
             {
-                cout << " + ";
+                out << " + ";
             }
-            cout << yIntercept();
+            out << yIntercept();
         }
     }
 }
