@@ -16,7 +16,7 @@ Data Abstraction: need fstream to open file,
                   need bool for sorting student vector
 
 Input: open file and check if it is open
-       assert that the file is open
+       if not get input again
 
 Process: skip first line of file, the get each line, store in sstream
          then get contents of sstream and store in student object,
@@ -32,7 +32,6 @@ Assumptions: data file is properly formatted
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <cassert>
 #include <sstream>
 #include <vector>
 #include "student.h"
@@ -56,12 +55,22 @@ int main()
     int averageCount;
 
     //Input:
-    cout << "Enter File Name: ";
-    cin >> input;
-    cout << input << endl;
+
+    do
+    {
+        cout << "Enter File Name: ";
+        cin >> input;
+        cout << input;
+        inputFile.open(input);
+
+        if (!inputFile)
+        {
+            cout << "Error: File Failed to Open.";
+        }
+        cout << endl;
+    } while (!inputFile);
     
-    inputFile.open(input);
-    assert(inputFile);
+    
 
     //Process:
 
@@ -102,7 +111,7 @@ int main()
     }
     inputFile.close();
     
-    //sort students by major and grades
+    //sort students by major and names
     sorted = false;
     while (!sorted)
     {
@@ -114,13 +123,18 @@ int main()
                 sorted = false;
                 swap(students.at(i), students.at(i+1));
             }
-            else if (students.at(i).major == students.at(i+1).major 
-            && students.at(i).getAverage() < students.at(i+1).getAverage())
+            if (students.at(i).major == students.at(i+1).major 
+            && students.at(i).name < students.at(i).name)
             { 
                 sorted = false;
                 swap(students.at(i), students.at(i+1));   
             }
         }
+    }
+
+    if ("Jordynne" < "Joyce")
+    {
+        cout << "vibe check" << endl;
     }
 
     //sort majors
