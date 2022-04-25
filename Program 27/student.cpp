@@ -3,25 +3,40 @@
 //Assignment Description: Variable data length
 //Due Date: 4/27/2022
 //Date Created: 4/22/2022
-//Date Last Modified: 4/22/2022 
+//Date Last Modified: 4/25/2022 
 
 #include "student.h"
 
-student::student(string name, string major)
+Student::Student(string name, string major)
 {
     this->name = name;
     this->major = major;
 }
 
-void student::addGrade(int grade)
+void Student::addGrade(int grade)
 {
     numOfGrades++;
     totalGrades+=grade;
 }
 
-double student::getAvergae()
+void Student::display()
+{
+
+    cout << setw(10) << name;
+    cout << setw(10) << major;
+    cout << setw(10) << getAverage();
+}
+
+double Student::getAverage()
 {
     double average;
-    average = static_cast<double>(totalGrades)/numOfGrades;
+    if (totalGrades == 0)
+    {
+        average = 0;
+    }
+    else
+    {
+        average = static_cast<double>(totalGrades)/numOfGrades;
+    }
     return average;
 }
