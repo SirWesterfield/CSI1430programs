@@ -84,30 +84,33 @@ int main()
         studentLine >> name >> major;
         Student temp(name, major);
         hasMajor = false;
-        for (unsigned int i = 0; i < majors.size(); i++)
+        if (!studentLine.fail())
         {
-            if (majors.at(i) == major)
+            for (unsigned int i = 0; i < majors.size(); i++)
             {
-                hasMajor = true;
+                if (majors.at(i) == major)
+                {
+                    hasMajor = true;
+                }
             }
-        }
-        if (!hasMajor)
-        {
-            majors.push_back(major);
-        }
-        for (int i = 0; i < 10; i++)
-        {
-            studentLine >> grade;
-            if (!studentLine.fail())
+            if (!hasMajor)
             {
-                temp.addGrade(grade);
+                majors.push_back(major);
             }
-            else
+            for (int i = 0; i < 10; i++)
             {
-                i = 10;
+                studentLine >> grade;
+                if (!studentLine.fail())
+                {
+                    temp.addGrade(grade);
+                }
+                else
+                {
+                    i = 10;
+                }
             }
+            students.push_back(temp);
         }
-        students.push_back(temp);
     }
     inputFile.close();
     
@@ -123,18 +126,13 @@ int main()
                 sorted = false;
                 swap(students.at(i), students.at(i+1));
             }
-            if (students.at(i).major == students.at(i+1).major 
-            && students.at(i).name < students.at(i).name)
-            { 
+            else if (students.at(i).major == students.at(i+1).major 
+            && students.at(i).name > students.at(i+1).name)
+            {
                 sorted = false;
                 swap(students.at(i), students.at(i+1));   
             }
         }
-    }
-
-    if ("Jordynne" < "Joyce")
-    {
-        cout << "vibe check" << endl;
     }
 
     //sort majors
@@ -174,7 +172,14 @@ int main()
                 averageCount += students.at(j).numOfGrades;
             }
         }
-        cout << setw(10) << average/averageCount << endl;
+        if (average > 0 && averageCount > 0)
+        {
+            cout << setw(10) << average/averageCount << endl;
+        }
+        else
+        {
+            cout << setw(10) << "0.00" << endl;
+        }
     }
     cout << endl;
 
