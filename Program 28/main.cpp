@@ -118,5 +118,19 @@ int main()
 
 void Time::display()
 {
-    cout << hour << ":" << min << ":" << second << endl;
+    if (hour < 10)
+    {
+        cout << "0";
+    }
+    cout << hour << ":";
+    if (min < 10)
+    {
+        cout << "0";
+    }
+    cout << min << ":";
+    if (second < 10)
+    {
+        cout << "0";
+    }
+    cout << second << endl;
 }
