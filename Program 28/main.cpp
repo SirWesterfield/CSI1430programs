@@ -8,11 +8,17 @@
 
 
 /*
-Data Abstraction:
-Input: 
-Process:
-Output: 
-Assumptions:
+Data Abstraction: need ifstream for input,
+                  string for input,
+                  three ints for input,
+                  one int for num of inputs
+                  bool for sorting
+                  array to store Times
+Input: open file, if file is not open then error
+Process: store all the times into the array,
+         then sort the array.
+Output: output the sorted array.
+Assumptions: the data file is properly formatted.
 */
 
 
@@ -27,6 +33,21 @@ struct Time{
 	int hour;
 	int min;
 	int second;
+
+
+    /*
+    * description: displays the contents of the object
+    * return: void
+    * precondition: hour, min, and second have been set.
+    * postcondition: none
+    *
+    */
+
+    void display()
+    {
+        cout << hour << ":" << min << ":" << second << endl;
+    }
+
 };
 
 
@@ -39,6 +60,7 @@ int main()
     int minutes;
     int seconds;
     int numCount = 0;
+    bool sorted = false;
     Time times[100];
 
     inputFile.open("timeData.txt");
@@ -64,11 +86,39 @@ int main()
 
         //Process:
 
-        
+        while (!sorted)
+        {
+            sorted = true;
+            for (int i = 0; i < numCount-1; i++)
+            {
+                if (times[i].hour > times[i+1].hour)
+                {
+                    swap(times[i], times[i+1]);
+                    sorted = false;
+                }
+                else if (times[i].hour == times[i+1].hour && 
+                times[i].min > times[i+1].min)
+                {
+                    swap(times[i], times[i+1]);
+                    sorted = false;
+                }
+                else if (times[i].hour == times[i+1].hour && 
+                times[i].min == times[i+1].min && 
+                times[i].second > times[i+1].second)
+                {
+                    swap(times[i], times[i+1]);
+                    sorted = false;
+                }
+            }
+        }
 
 
         //Output:
-    
+
+        for (int i = 0; i < numCount; i++)
+        {
+            times[i].display();
+        }
     }
 
     return 0;
