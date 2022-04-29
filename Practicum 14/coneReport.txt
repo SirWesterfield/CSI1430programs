@@ -1,0 +1,7 @@
+Total Count = 2
+Average Volume = 67538.01
+Average Area = 18977.03
+
+                 Color                Height                Radius
+Min Cone       = BABY BLUE           181.24              3.58                
+Max Cone       = DARK RED            22.68               74.73               
