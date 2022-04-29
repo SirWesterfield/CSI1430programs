@@ -29,31 +29,23 @@ Assumptions: the data file is properly formatted.
 using namespace std;
 
 
-struct Time{
+struct Time
+{
 	int hour;
 	int min;
 	int second;
 
+    //description: displays the contents of the object
+    //return: void
+    //precondition: hour, min, and second have been set.
+    //postcondition: none
 
-    /*
-    * description: displays the contents of the object
-    * return: void
-    * precondition: hour, min, and second have been set.
-    * postcondition: none
-    *
-    */
-
-    void display()
-    {
-        cout << hour << ":" << min << ":" << second << endl;
-    }
-
+    void display();
 };
-
 
 int main()
 {
-    //Data Abstraction:
+    //Data Abastraction:
     ifstream inputFile;
     string input;
     int hours;
@@ -122,4 +114,9 @@ int main()
     }
 
     return 0;
+}
+
+void Time::display()
+{
+    cout << hour << ":" << min << ":" << second << endl;
 }
