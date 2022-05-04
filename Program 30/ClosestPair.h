@@ -3,7 +3,7 @@
 //Assignment Description: closest pair
 //Due Date: 5/5/2022
 //Date Created: 5/2/2022
-//Date Last Modified: 5/2/2022
+//Date Last Modified: 5/4/2022
 
 #ifndef HEADERTEMPLATE_H_INCLUDED
 #define HEADERTEMPLATE_H_INCLUDED
@@ -11,14 +11,6 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
-/*
- * description:
- * return:
- * precondition:
- * postcondition:
- *
-*/
 
 struct Point
 {
